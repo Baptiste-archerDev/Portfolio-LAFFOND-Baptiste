@@ -4,93 +4,87 @@ title Déploiement Portfolio GitHub — Baptiste Laffond
 color 0F
 
 echo ==============================================================================
-echo    PORTFOLIO BAPTISTE LAFFOND — DÉPLOIEMENT EN 1 CLIC SUR GITHUB
+echo    PORTFOLIO BAPTISTE LAFFOND — DÉPLOIEMENT AUTOMATIQUE VERS GITHUB
 echo ==============================================================================
 echo.
 
-:: S'assurer que le script travaille dans le bon dossier
+:: Se positionner dans le dossier du portfolio
 cd /d "%~dp0"
 
-:: 1. Vérification de la présence de Git
+:: 1. Vérification de Git
 where git >nul 2>&1
 if %ERRORLEVEL% neq 0 (
     echo [ERREUR] Git n'est pas installe sur cet ordinateur.
-    echo Telechargez Git gratuitement sur : https://git-scm.com/download/win
-    echo Puis relancez ce fichier.
+    echo Telechargez Git : https://git-scm.com/download/win
     echo.
     pause
     exit /b
 )
 
-echo [1/5] Verification de Git : OK.
+echo [1/4] Git detecte : OK.
 echo.
 
-:: 2. Initialisation du dépôt Git local
+:: 2. Initialisation et validation des fichiers
+echo [2/4] Preparation des fichiers du portfolio...
 if not exist ".git" (
-    echo [2/5] Initialisation du repertoire Git local...
-    git init
-    git branch -M main
-) else (
-    echo [2/5] Repertoire Git local deja initialise.
-    git branch -M main >nul 2>&1
+    git init -b main >nul 2>&1
 )
-echo.
-
-:: 3. Ajout des fichiers selon .gitignore
-echo [3/5] Indexation des fichiers du portfolio...
+git branch -M main >nul 2>&1
 git add .
 git commit -m "Mise a jour Portfolio Baptiste Laffond" >nul 2>&1
-if %ERRORLEVEL% equ 0 (
-    echo     Commit effectue avec succes.
-) else (
-    echo     Aucun nouveau fichier a valider ou deja a jour.
-)
+echo     Fichiers indexes et prets pour l'envoi.
 echo.
 
-:: 4. Vérification ou saisie de l'URL distante GitHub
+:: 3. Configuration du dépôt distant
 git remote get-url origin >nul 2>&1
 if %ERRORLEVEL% neq 0 (
-    echo [4/5] Configuration du lien vers GitHub...
+    echo [3/4] Liaison avec votre compte GitHub :
+    echo     Compte GitHub detecte : Baptiste-archerDev
     echo.
-    echo Veuillez coller l'URL de votre depot GitHub
-    echo (Exemple : https://github.com/votre-pseudo/portfolio.git) :
-    set /p REPO_URL="URL du depot : "
+    echo Avez-vous cree un depot sur https://github.com/new ?
+    echo Tapez le nom de votre depot GitHub (ex: portfolio)
+    set REPO_NAME=portfolio
+    set /p REPO_NAME="Nom du depot [Appuyez sur Entree pour 'portfolio'] : "
     
-    if "%REPO_URL%"=="" (
-        echo [ANNULATION] Aucune URL fournie. Le depot local est pret, vous pourrez le lier plus tard.
-        pause
-        exit /b
-    )
-    git remote add origin %REPO_URL%
+    git remote add origin https://github.com/Baptiste-archerDev/%REPO_NAME%.git
+    echo.
+    echo     Lien associe : https://github.com/Baptiste-archerDev/%REPO_NAME%.git
 ) else (
-    echo [4/5] Depot GitHub distant deja configure :
+    echo [3/4] Depot GitHub deja configure :
     git remote get-url origin
 )
 echo.
 
-:: 5. Envoi vers GitHub
-echo [5/5] Envoi des fichiers vers la branche main sur GitHub...
+:: 4. Envoi des fichiers vers GitHub
+echo [4/4] Envoi en cours vers GitHub (cela ne prend que quelques secondes)...
+echo.
 git push -u origin main
 
 if %ERRORLEVEL% equ 0 (
     echo.
     echo ==============================================================================
-    echo    SUCCES ! Votre portfolio est publie sur GitHub avec succes !
+    echo    SUCCES ! Vos 210 fichiers sont maintenant sur GitHub !
     echo ==============================================================================
     echo.
-    echo Pour activer l'hebergement gratuit GitHub Pages :
-    echo   1. Allez sur votre depot GitHub dans votre navigateur
-    echo   2. Cliquez sur 'Settings' -^> 'Pages' (dans le menu de gauche)
-    echo   3. Dans 'Build and deployment', choisissez 'GitHub Actions' (ou branche 'main')
-    echo   4. Votre site est accessible mondialement en quelques secondes !
+    echo Pour voir votre site en ligne gratuitement (GitHub Pages) :
+    echo   1. Allez sur https://github.com/Baptiste-archerDev/portfolio/settings/pages
+    echo   2. Dans 'Source', choisissez 'Deploy from a branch'
+    echo   3. Selectionnez la branche 'main' et le dossier '/(root)', puis 'Save'
+    echo.
+    echo Votre site sera en ligne sur :
+    echo   https://baptiste-archerdev.github.io/portfolio/
     echo.
 ) else (
     echo.
-    echo [ATTENTION] L'envoi vers GitHub a rencontre un souci.
-    echo Verifiez :
-    echo   - Votre connexion Internet
-    echo   - Que vous etes bien connecte a votre compte GitHub
-    echo   - Que le depot distant existe bien sur GitHub
+    echo ------------------------------------------------------------------------------
+    echo [NOTE D'AUTHENTIFICATION]
+    echo Si une fenetre s'est ouverte pour vous connecter a GitHub, validez-la.
+    echo Si le depot n'existe pas encore sur GitHub :
+    echo   1. Rendez-vous sur https://github.com/new
+    echo   2. Nommez-le 'portfolio' (sans cocher 'Add README')
+    echo   3. Cliquez sur 'Create repository'
+    echo   4. Relancez ce fichier !
+    echo ------------------------------------------------------------------------------
     echo.
 )
 
