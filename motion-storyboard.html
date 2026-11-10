@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Effects &amp; Storyboards — Motion Design | Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-style.css">
+    <style>
+        /* Charte Motion & After Effects - Corail Phoenix & Violet After Effects */
+        :root {
+            --accent-primary: #ff3344;
+            --accent-yellow: #ffd600;
+            --accent-blue: #8b5cf6;
+            --poster-bg: #141418;
+        }
+        .btn-primary {
+            background: #ff3344;
+            color: #ffffff;
+            border-color: #ff3344;
+            box-shadow: none;
+        }
+        .video-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .video-box {
+            background: #141418;
+            border: 2px solid var(--border);
+            padding: 1rem;
+            box-shadow: 6px 6px 0 var(--accent-primary);
+        }
+        .video-box video {
+            width: 100%;
+            background: #000;
+            display: block;
+        }
+        .video-box.vertical video {
+            aspect-ratio: 9 / 16;
+            max-height: 480px;
+            object-fit: contain;
+        }
+        .video-box.landscape video {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .video-box figcaption {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--ink-muted);
+            margin-top: 0.75rem;
+        }
+        @media (max-width: 760px) {
+            .video-showcase-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body data-project-charter="Charte Motion Studio (#E03E2D / #7C3AED)">
+    <div class="scroll-progress"></div>
+
+            <header class="topbar">
+        <div class="topbar-inner">
+            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+                Baptiste Laffond
+                <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="portfolio.html" class="nav-link">← Accueil</a>
+                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
+                <a href="portfolio.html#repertoire" class="nav-link">Répertoire (11)</a>
+                <a href="projets.html" class="nav-link">Catalogue</a>
+                <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
+            </nav>
+
+            <div>
+                <a href="portfolio.html#contact" class="cta-swiss">
+                    <span>Me contacter</span>
+                    <span class="arrow-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <a href="portfolio.html#sommaire" class="case-breadcrumb">← Retour au Dossier 04 · Motion &amp; Storyboard</a>
+
+                <div class="case-header-grid">
+                    <div>
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                            <span class="pill-badge pink">AFTER EFFECTS &amp; VFX</span>
+                            <span class="pill-badge yellow">STORYBOARD 14 PLANS</span>
+                            <span class="pill-badge green">PARALLAXE 2.5D</span>
+                        </div>
+                        <h1 class="case-title">Motion Design &amp; Storyboard</h1>
+                        <p class="case-lead">
+                            Du premier coup de crayon sur le storyboard de production (14 plans dessinés) jusqu'à l'animation d'images clés, l'espace 3D en parallaxe 2.5D, les animations de logos et les reels vidéo sous Adobe After Effects.
+                        </p>
+
+                        <!-- Barre rapide de la Charte Motion -->
+                        <div class="project-brand-bar" aria-label="Palette Motion Design">
+                            <span class="project-brand-bar-label">Palette Motion (clic = copier) :</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#E03E2D"><span class="mini-swatch-dot" style="background:#E03E2D;"></span>Corail Phoenix #E03E2D</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#7C3AED"><span class="mini-swatch-dot" style="background:#7C3AED;"></span>Violet AE #7C3AED</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#F472B6"><span class="mini-swatch-dot" style="background:#F472B6;"></span>Rose Pétale #F472B6</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#121016"><span class="mini-swatch-dot" style="background:#121016;"></span>Noir Studio #121016</span>
+                        </div>
+
+                        <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
+                            <a href="Storyboard_UCPV.pdf" target="_blank" rel="noopener" class="btn-primary">Ouvrir le Storyboard PDF ↗</a>
+                            <a href="#videos-motion" class="btn-secondary">Voir les animations &amp; reels ↓</a>
+                        </div>
+                    </div>
+
+                    <dl class="case-meta-notes">
+                        <div class="meta-sticky blue">
+                            <dt>DISCIPLINES</dt>
+                            <dd>Motion Design, Compositing &amp; Storyboarding</dd>
+                        </div>
+                        <div class="meta-sticky pink">
+                            <dt>PRÉ-PRODUCTION</dt>
+                            <dd>Découpage technique 14 plans, cadrage &amp; son</dd>
+                        </div>
+                        <div class="meta-sticky green">
+                            <dt>ANIMATION</dt>
+                            <dd>Parallaxe 2.5D, Logo Reveal, Vectoriel 2D, Reels</dd>
+                        </div>
+                        <div class="meta-sticky orange">
+                            <dt>LOGICIELS</dt>
+                            <dd>After Effects, Premiere Pro, Illustrator, InDesign</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="case-banner-frame cover-fit reveal-on-scroll">
+                    <img src="ae-phoenix-parallaxe.png" alt="Composition After Effects Parallaxe Phoenix" class="zoomable-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1 : STORYBOARD 6 PLANCHES -->
+        <section class="case-section">
+            <div class="container">
+                <span class="section-kicker">01 · Pré-production audiovisuelle</span>
+                <h2 class="section-title">Dossier de Storyboard UCPV (6 pages · 14 plans)</h2>
+                <p style="max-width:70ch;">
+                    Conception intégrale d'un dossier de storyboard professionnel structuré en 3 actes avec indication des valeurs de cadre, mouvements de caméra (iPhone Pro 4K, GoPro POV, Drone) et sound design.
+                </p>
+
+                <div class="media-gallery-grid cols-3 reveal-on-scroll">
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p1.png" alt="Storyboard P1" loading="lazy"><figcaption>P.01 — Couverture &amp; structure en 3 actes</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p2.png" alt="Storyboard P2" loading="lazy"><figcaption>P.02 — Acte I : L'illusion du défi (Plans 01-04)</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p3.png" alt="Storyboard P3" loading="lazy"><figcaption>P.03 — Tension &amp; rupture (Plans 05-08)</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p4.png" alt="Storyboard P4" loading="lazy"><figcaption>P.04 — Transmission &amp; déclic (Plans 09-12)</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p5.png" alt="Storyboard P5" loading="lazy"><figcaption>P.05 — Dénouement &amp; signature (Plans 13-14)</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-ucpv-p6.png" alt="Storyboard P6" loading="lazy"><figcaption>P.06 — Répartition technique multi-caméras</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : AFTER EFFECTS PARALLAXE & VECTORIEL -->
+        <section class="case-section bg-white">
+            <div class="container">
+                <div class="case-row reveal-on-scroll">
+                    <div class="case-text">
+                        <span class="step-number">02 · ESPACE 3D &amp; CAMÉRA VIRTUELLE</span>
+                        <h2>Effet Parallaxe 2.5D : Phoenix &amp; pétales de rose</h2>
+                        <p>
+                            Transformation d'illustrations fixes en une scène cinématographique animée en profondeur (2.5D) sous After Effects. Chaque plan (phœnix en arrière-plan, nuées de pétales à mi-distance et pétales floutés au premier plan) est détouré puis réparti sur l'axe Z avec gestion du flou d'objectif.
+                        </p>
+                    </div>
+                    <figure class="l-frame-media">
+                        <img src="ae-phoenix-parallaxe.png" alt="Parallaxe Phoenix After Effects" loading="lazy">
+                        <figcaption>Composition After Effects « Phoenix &amp; Pétales de rose »</figcaption>
+                    </figure>
+                </div>
+
+                <div class="case-row reverse reveal-on-scroll">
+                    <div class="case-text">
+                        <span class="step-number">03 · ILLUSTRATOR × AFTER EFFECTS</span>
+                        <h2>Animation vectorielle &amp; courbes de vitesse</h2>
+                        <p>
+                            Préparation des calques vectoriels sous Illustrator et animation des courbes de vitesse (<em>Graph Editor / Easy Ease</em>) dans After Effects : anticipation du mouvement, <em>squash &amp; stretch</em> et défilement multi-plans du décor étoilé.
+                        </p>
+                    </div>
+                    <figure class="l-frame-media">
+                        <img src="ae-fusee.png" alt="Animation vectorielle Fusée After Effects" loading="lazy">
+                        <figcaption>Design vectoriel modulaire conçu pour l'animation sur After Effects</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 : VIDÉOS EN MOUVEMENT & STORYBOARDS PAPIER -->
+        <section class="case-section bg-dark" id="videos-motion">
+            <div class="container">
+                <span class="section-kicker" style="background:#E03E2D; color:#fff;">04 · Vidéos &amp; Reels</span>
+                <h2 class="section-title">Animations de logos, Reels 9:16 &amp; Storyboards crayonnés</h2>
+
+                <div class="video-showcase-grid reveal-on-scroll">
+                    <figure class="video-box landscape">
+                        <video controls preload="metadata">
+                            <source src="anim-logo-dynamique.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Animation de logo — Version dynamique (After Effects)</figcaption>
+                    </figure>
+                    <figure class="video-box landscape">
+                        <video controls preload="metadata">
+                            <source src="anim-logo-v1.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Animation de logo — Recherche de rythme et d'apparition</figcaption>
+                    </figure>
+                    <figure class="video-box vertical">
+                        <video controls preload="metadata">
+                            <source src="reel1.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Reel Motion &amp; VFX N°1 — Format vertical 9:16 (Lacoste Goliath)</figcaption>
+                    </figure>
+                    <figure class="video-box vertical">
+                        <video controls preload="metadata">
+                            <source src="reel2.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Reel Motion &amp; VFX N°2 — Transitions et habillage After Effects</figcaption>
+                    </figure>
+                </div>
+
+                <h3 style="font-family:var(--font-display); font-size:1.4rem; margin:3rem 0 1rem; color:#fff;">
+                    Planches de storyboard crayonnées à la main (Lacoste Goliath)
+                </h3>
+                <div class="media-gallery-grid cols-3 reveal-on-scroll">
+                    <figure class="gallery-card"><img src="storyboard-lacoste-1.jpg" alt="Storyboard papier 1" loading="lazy"><figcaption>Storyboard papier 01 — Cadrages et mise en place</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-lacoste-2.jpg" alt="Storyboard papier 2" loading="lazy"><figcaption>Storyboard papier 02 — Enchaînement des séquences</figcaption></figure>
+                    <figure class="gallery-card"><img src="storyboard-lacoste-3.jpg" alt="Storyboard papier 3" loading="lazy"><figcaption>Storyboard papier 03 — Transitions et VFX prévus</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="next-project-banner">
+            <div>
+                <span class="section-kicker" style="margin-bottom:0.4rem;">Projet suivant</span>
+                <h3 style="font-family:var(--font-display); font-size:1.8rem; text-transform:uppercase;">FlèchOptim — Application Web</h3>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="FlechOptim.html" class="btn-primary">Voir FlèchOptim →</a>
+                <a href="projets.html" class="btn-secondary">Tous les projets</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="portfolio.js"></script>
+</body>
+
+</html>

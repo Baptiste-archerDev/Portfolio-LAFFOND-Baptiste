@@ -1,0 +1,22 @@
+# ==============================================================================
+# .gitignore — Portfolio Baptiste Laffond (BUT MMI)
+# ==============================================================================
+
+# Fichiers volumineux (> 100 Mo bloqués par la limite stricte de GitHub)
+Vidéo_Lacoste_Goliath_FR.mp4
+video-ucpv.mov
+ucpv-video.mov
+
+# Fichiers système et caches OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Caches éditeurs et temporaires
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.bak
+*.log

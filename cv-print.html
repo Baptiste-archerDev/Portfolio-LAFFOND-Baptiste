@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Baptiste Laffond, Design Graphique, Édition &amp; Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================================
+           CV ÉDITORIAL A4 — BAPTISTE LAFFOND
+           Même Direction Artistique que le Portfolio :
+           - Fond papier carbone #1A1A1A & grain d'atelier
+           - Rouge signature #B21231, Vert volt #76FF03, Rose #FF3388
+           - Typographies : Inter Tight, Instrument Serif, Caveat, JetBrains Mono
+           - Zéro grille carcérale, hiérarchie par l'espace et la typographie
+           - Mascotte Burger en vrai Sticker Vinyle Die-Cut
+           ========================================================= */
+        
+         :root {
+            --paper: #1A1A1A;
+            --paper-soft: #212125;
+            --paper-deep: #141417;
+            --ink: #FFFFFF;
+            --ink-secondary: #D2D2DA;
+            --ink-muted: #8E8E99;
+            --accent: #B21231;
+            --accent-pink: #FF3388;
+            --accent-lime: #76FF03;
+            --accent-bronze: #A56846;
+            --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-draw: 'Caveat', cursive, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        body {
+            background: #0E0E10;
+            font-family: var(--font-sans);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            padding: 12mm 0 16mm;
+        }
+        /* Barre d'outils écran (masquée à l'impression) */
+        
+        .screen-toolbar {
+            width: 210mm;
+            margin: 0 auto 5mm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2mm;
+        }
+        
+        .toolbar-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--ink-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .toolbar-back:hover {
+            color: #FFFFFF;
+        }
+        
+        .toolbar-print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.15rem;
+            background: #FFFFFF;
+            color: #141417;
+            border: none;
+            border-radius: 999px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .toolbar-print-btn:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+        
+        @media print {
+            body {
+                background: var(--paper);
+                padding: 0;
+            }
+            .screen-toolbar {
+                display: none !important;
+            }
+            .page {
+                margin: 0 !important;
+                box-shadow: none !important;
+            }
+        }
+        /* Feuille A4 */
+        
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            background: var(--paper);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 11mm 12mm 9mm;
+        }
+        /* Liseré supérieur signature du site */
+        
+        .page::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1.6mm;
+            background: linear-gradient( 90deg, var(--accent) 0%, var(--accent) 68%, var(--accent-pink) 68%, var(--accent-pink) 86%, var(--accent-lime) 86%, var(--accent-lime) 100%);
+            z-index: 10;
+        }
+        /* Halo d'ambiance doux comme sur le portfolio */
+        
+        .ambient-glow {
+            position: absolute;
+            top: -25mm;
+            right: -20mm;
+            width: 110mm;
+            height: 110mm;
+            background: radial-gradient(circle, rgba(178, 18, 49, 0.16) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Filigrane blason / courbes très discret en fond d'en-tête */
+        
+        .cv-watermark {
+            position: absolute;
+            top: -12mm;
+            right: -12mm;
+            width: 92mm;
+            height: 92mm;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* =========================================================
+           1. EN-TÊTE ÉDITORIAL (SANS GRILLE DE TRAITS)
+           ========================================================= */
+        
+        .cv-header {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 38mm 1fr 34mm;
+            gap: 6mm;
+            align-items: center;
+            margin-bottom: 6mm;
+        }
+        /* Portrait posé façon tirage d'atelier avec scotch papier */
+        
+        .portrait-wrap {
+            position: relative;
+            transform: rotate(-1.4deg);
+        }
+        
+        .masking-tape {
+            position: absolute;
+            top: -2.6mm;
+            left: 50%;
+            transform: translateX(-50%) rotate(2.5deg);
+            width: 22mm;
+            height: 5.2mm;
+            background: linear-gradient(135deg, rgba(236, 226, 200, 0.85), rgba(218, 205, 176, 0.78));
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            z-index: 4;
+            clip-path: polygon( 3% 0%, 97% 3%, 100% 25%, 96% 52%, 100% 78%, 97% 100%, 2% 97%, 0% 72%, 4% 45%, 0% 18%);
+        }
+        
+        .portrait-photo {
+            width: 100%;
+            aspect-ratio: 4 / 4.7;
+            object-fit: cover;
+            object-position: 50% 22%;
+            display: block;
+            border-radius: 2px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+            background: var(--paper-soft);
+        }
+        
+        .header-center {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .eyebrow-role {
+            font-size: 7.2pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--accent);
+            margin-bottom: 1.2mm;
+        }
+        
+        .cv-name {
+            font-size: 34pt;
+            font-weight: 800;
+            line-height: 0.88;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 2.5mm;
+        }
+        
+        .cv-name .serif-italic {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: var(--ink-secondary);
+            font-size: 28pt;
+        }
+        
+        .cv-lead {
+            font-size: 8.6pt;
+            line-height: 1.48;
+            color: var(--ink-secondary);
+            max-width: 105mm;
+        }
+        
+        .cv-lead strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+        /* Mascotte Burger en Sticker Die-Cut à droite de l'en-tête */
+        
+        .header-mascot-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .mascot-sticker {
+            width: 31mm;
+            height: auto;
+            filter: url(#vinyl-sticker);
+            transform: rotate(4deg);
+        }
+        
+        .mascot-note {
+            font-family: var(--font-draw);
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--accent-lime);
+            transform: rotate(-4deg);
+            margin-top: 0.5mm;
+            white-space: nowrap;
+        }
+        /* Bandeau de repères clés doux (sans bordures ni traits) */
+        
+        .highlights-pill-row {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3mm;
+            background: var(--paper-soft);
+            padding: 2.8mm 5mm;
+            border-radius: 6px;
+            margin-bottom: 6.5mm;
+        }
+        
+        .hl-item {
+            display: flex;
+            align-items: baseline;
+            gap: 2mm;
+        }
+        
+        .hl-label {
+            font-family: var(--font-mono);
+            font-size: 6pt;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-muted);
+        }
+        
+        .hl-val {
+            font-size: 8.4pt;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        
+        .hl-val.accent {
+            color: var(--accent-lime);
+        }
+        /* =========================================================
+           2. CORPS ASYMÉTRIQUE AÉRÉ (SANS TRAITS DE SÉPARATION)
+           ========================================================= */
+        
+        .cv-body {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 56mm 1fr;
+            gap: 9mm;
+            flex: 1;
+            align-items: start;
+        }
+        /* Colonne gauche : Profil, Compétences, Intérêts, QR Code */
+        
+        .col-left {
+            display: flex;
+            flex-direction: column;
+            gap: 5.2mm;
+            background: var(--paper-deep);
+            padding: 5mm 4.8mm;
+            border-radius: 8px;
+            height: 100%;
+            justify-content: space-between;
+        }
+        
+        .side-block-title {
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            margin-bottom: 2.2mm;
+        }
+        
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+        
+        .contact-list li {
+            font-size: 7.6pt;
+            line-height: 1.35;
+            color: var(--ink-secondary);
+        }
+        
+        .contact-list .c-lbl {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 5.6pt;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-muted);
+            margin-bottom: 0.3mm;
+        }
+        
+        .contact-list a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        /* Groupes de compétences sans bordures lourdes */
+        
+        .skill-group {
+            margin-bottom: 2.6mm;
+        }
+        
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .skill-cat {
+            font-family: var(--font-mono);
+            font-size: 5.8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-muted);
+            margin-bottom: 1.2mm;
+        }
+        
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2mm;
+            list-style: none;
+        }
+        
+        .skill-chip {
+            padding: 0.8mm 2.2mm;
+            background: var(--paper-soft);
+            border-radius: 4px;
+            font-size: 6.8pt;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        
+        .skill-chip.featured {
+            background: rgba(178, 18, 49, 0.24);
+            color: #FFFFFF;
+        }
+        
+        .skill-chip.lime {
+            background: rgba(118, 255, 3, 0.12);
+            color: var(--accent-lime);
+        }
+        /* Centres d'intérêt */
+        
+        .interests-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2mm;
+        }
+        
+        .interests-list li {
+            font-size: 7.4pt;
+            line-height: 1.35;
+            color: var(--ink-secondary);
+        }
+        
+        .interests-list strong {
+            color: var(--ink);
+            display: block;
+            font-size: 7.8pt;
+            margin-bottom: 0.2mm;
+        }
+        /* Bloc QR Code + Signature */
+        
+        .qr-card {
+            background: var(--paper-soft);
+            padding: 3mm;
+            border-radius: 6px;
+            display: grid;
+            grid-template-columns: 20mm 1fr;
+            gap: 2.8mm;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .qr-frame {
+            width: 20mm;
+            height: 20mm;
+            background: #FFFFFF;
+            padding: 1.2mm;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .qr-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .qr-frame .ph {
+            position: absolute;
+            inset: 1.2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 4.8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .qr-meta .qr-tag {
+            font-family: var(--font-draw);
+            font-size: 9.8pt;
+            font-weight: 700;
+            color: var(--accent-lime);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.6mm;
+        }
+        
+        .qr-meta strong {
+            display: block;
+            font-size: 8.4pt;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+        
+        .qr-meta small {
+            display: block;
+            font-size: 6pt;
+            color: var(--ink-muted);
+            margin-top: 0.6mm;
+            line-height: 1.25;
+        }
+        /* =========================================================
+           3. COLONNE DROITE : EXPÉRIENCES, PROJETS & FORMATION
+           ========================================================= */
+        
+        .col-right {
+            display: flex;
+            flex-direction: column;
+            gap: 5.2mm;
+            height: 100%;
+            justify-content: space-between;
+        }
+        
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2.8mm;
+        }
+        
+        .section-head h2 {
+            font-size: 11.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+        
+        .section-head .hand-note {
+            font-family: var(--font-draw);
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--accent);
+            transform: rotate(-2deg);
+        }
+        /* Liste des expériences universitaires : fluide, aérée, zéro trait vertical */
+        
+        .exp-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2.7mm;
+        }
+        
+        .exp-item {
+            display: grid;
+            grid-template-columns: 28mm 1fr;
+            gap: 3mm;
+            align-items: baseline;
+        }
+        
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 6pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-muted);
+            line-height: 1.3;
+        }
+        
+        .exp-date .role-pill {
+            display: inline-block;
+            margin-top: 0.5mm;
+            color: var(--accent-lime);
+            font-size: 5.6pt;
+        }
+        
+        .exp-content h3 {
+            font-size: 9.2pt;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            display: inline-flex;
+            align-items: center;
+            gap: 2mm;
+            flex-wrap: wrap;
+        }
+        
+        .exp-badge-hand {
+            font-family: var(--font-draw);
+            font-size: 9.2pt;
+            font-weight: 700;
+            color: #FFD600;
+            background: rgba(255, 214, 0, 0.12);
+            padding: 0.1mm 1.8mm;
+            border-radius: 3px;
+            line-height: 1.1;
+        }
+        
+        .exp-badge-hand.pink {
+            color: var(--accent-pink);
+            background: rgba(255, 51, 136, 0.12);
+        }
+        
+        .exp-content p {
+            font-size: 7.4pt;
+            line-height: 1.42;
+            color: var(--ink-secondary);
+            margin-top: 0.5mm;
+        }
+        /* Grille des 4 projets personnels : cartes douces sans bordures */
+        
+        .perso-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.6mm;
+        }
+        
+        .perso-card {
+            background: var(--paper-soft);
+            padding: 2.6mm 3.2mm;
+            border-radius: 6px;
+        }
+        
+        .perso-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.6mm;
+        }
+        
+        .perso-top h3 {
+            font-size: 8.8pt;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        
+        .perso-top span {
+            font-family: var(--font-mono);
+            font-size: 5.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .perso-card p {
+            font-size: 7pt;
+            line-height: 1.38;
+            color: var(--ink-secondary);
+        }
+        /* Formation : 2 blocs côte à côte épurés */
+        
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3mm;
+        }
+        
+        .edu-item {
+            background: rgba(255, 255, 255, 0.025);
+            padding: 2.4mm 3mm;
+            border-radius: 6px;
+        }
+        
+        .edu-year {
+            font-family: var(--font-mono);
+            font-size: 5.8pt;
+            font-weight: 600;
+            color: var(--accent-lime);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.4mm;
+        }
+        
+        .edu-item h3 {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+        
+        .edu-item p {
+            font-size: 7pt;
+            color: var(--ink-muted);
+            margin-top: 0.4mm;
+        }
+        /* Pied de page avec signature manuscrite */
+        
+        .cv-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.5mm;
+        }
+        
+        .cv-footer-meta {
+            font-family: var(--font-mono);
+            font-size: 5.8pt;
+            color: var(--ink-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .cv-signature {
+            height: 7.5mm;
+            width: auto;
+            opacity: 0.92;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Filtre SVG pour le contour Sticker Die-Cut blanc de la mascotte -->
+    <svg width="0" height="0" style="position:absolute; width:0; height:0; pointer-events:none;" aria-hidden="true">
+        <defs>
+            <filter id="vinyl-sticker" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+                <feMorphology in="SourceAlpha" result="DILATED_WHITE" operator="dilate" radius="3.6"></feMorphology>
+                <feFlood flood-color="#FFFFFF" flood-opacity="1" result="WHITE_FILL"></feFlood>
+                <feComposite in="WHITE_FILL" in2="DILATED_WHITE" operator="in" result="WHITE_BORDER"></feComposite>
+                <feMorphology in="DILATED_WHITE" result="DILATED_BLACK" operator="dilate" radius="1"></feMorphology>
+                <feFlood flood-color="#121214" flood-opacity="0.9" result="BLACK_FILL"></feFlood>
+                <feComposite in="BLACK_FILL" in2="DILATED_BLACK" operator="in" result="OUTER_LINE"></feComposite>
+                <feDropShadow in="OUTER_LINE" dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.65" result="STICKER_SHADOW"></feDropShadow>
+                <feMerge>
+                    <feMergeNode in="STICKER_SHADOW"></feMergeNode>
+                    <feMergeNode in="OUTER_LINE"></feMergeNode>
+                    <feMergeNode in="WHITE_BORDER"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Barre d'action rapide à l'écran (invisible à l'impression) -->
+    <div class="screen-toolbar">
+        <a href="index.html" class="toolbar-back">← Retour au portfolio</a>
+        <button type="button" class="toolbar-print-btn" onclick="window.print()">Imprimer / Exporter en PDF (A4)</button>
+    </div>
+
+    <div class="page">
+        <div class="ambient-glow" aria-hidden="true"></div>
+
+        <!-- Filigrane géométrique subtil rappelant le Hero du site -->
+        <svg class="cv-watermark" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+            <circle cx="200" cy="200" r="180" stroke="#FFFFFF" stroke-width="1"/>
+            <circle cx="200" cy="200" r="130" stroke="#FFFFFF" stroke-width="1"/>
+            <circle cx="200" cy="200" r="80" stroke="#B21231" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="32" stroke="#76FF03" stroke-width="1.2" stroke-dasharray="4 4"/>
+        </svg>
+
+        <div>
+            <!-- ===================== 1. EN-TÊTE ÉDITORIAL ===================== -->
+            <header class="cv-header">
+                <div class="portrait-wrap">
+                    <div class="masking-tape" aria-hidden="true"></div>
+                    <img src="photo-cv.jpg" alt="Portrait de Baptiste Laffond" class="portrait-photo">
+                </div>
+
+                <div class="header-center">
+                    <span class="eyebrow-role">Design Graphique, Édition Print, Web &amp; Communication</span>
+                    <h1 class="cv-name">Baptiste <span class="serif-italic">Laffond</span></h1>
+                    <p class="cv-lead">
+                        Étudiant en 2<sup>e</sup> année de <strong>BUT MMI au Puy-en-Velay</strong>, passionné par la direction artistique, l'édition print et le développement web. Créatif et rigoureux, je conçois des identités visuelles, des maquettes
+                        print et des interfaces fonctionnelles de A à Z.
+                    </p>
+                </div>
+
+                <div class="header-mascot-col">
+                    <img src="creations/burger-mascotte-web.png" alt="Mascotte Burger Street Cartoon par Baptiste Laffond" class="mascot-sticker">
+                    <span class="mascot-note">« Stage 10 à 12 semaines<br>dès le 12 avril 2027 ! »</span>
+                </div>
+            </header>
+
+            <!-- Bandeau de synthèse doux sans grille de traits -->
+            <div class="highlights-pill-row">
+                <div class="hl-item">
+                    <span class="hl-label">Stage conventionné</span>
+                    <span class="hl-val accent">10 à 12 sem. dès le 12 avril 2027</span>
+                </div>
+                <div class="hl-item">
+                    <span class="hl-label">Mobilité</span>
+                    <span class="hl-val">Permis B, véhiculé</span>
+                </div>
+                <div class="hl-item">
+                    <span class="hl-label">Secteurs clés</span>
+                    <span class="hl-val">Millau, Rodez, Le Puy, Clermont</span>
+                </div>
+                <div class="hl-item">
+                    <span class="hl-label">Profil</span>
+                    <span class="hl-val">BUT MMI 2<sup>e</sup> année</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== 2. CORPS DU CV ===================== -->
+        <div class="cv-body">
+
+            <!-- COLONNE GAUCHE : CONTACT, COMPÉTENCES, INTÉRÊTS, QR -->
+            <aside class="col-left">
+                <div>
+                    <h2 class="side-block-title">Contact</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="c-lbl">Localisation</span> Millau (12) / Le Puy-en-Velay (43)
+                        </li>
+                        <li>
+                            <span class="c-lbl">Mobilité</span> Permis B, véhiculé (ouvert mobilité)
+                        </li>
+                        <li>
+                            <span class="c-lbl">E-mail</span>
+                            <a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="c-lbl">LinkedIn</span>
+                            <a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener">linkedin.com/in/baptiste-laffond</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="side-block-title">Compétences</h2>
+                    <div class="skill-group">
+                        <p class="skill-cat">Design &amp; Édition Print</p>
+                        <ul class="skill-chips">
+                            <li class="skill-chip featured">Adobe InDesign</li>
+                            <li class="skill-chip featured">Illustrator</li>
+                            <li class="skill-chip">Photoshop</li>
+                            <li class="skill-chip">Charte graphique</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <p class="skill-cat">Web &amp; Interface</p>
+                        <ul class="skill-chips">
+                            <li class="skill-chip lime">HTML5 / CSS3</li>
+                            <li class="skill-chip">JavaScript ES6</li>
+                            <li class="skill-chip">PHP / MySQL</li>
+                            <li class="skill-chip">Figma</li>
+                            <li class="skill-chip">WordPress</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <p class="skill-cat">Motion, Vidéo &amp; Son</p>
+                        <ul class="skill-chips">
+                            <li class="skill-chip featured">After Effects 2.5D</li>
+                            <li class="skill-chip">Premiere Pro</li>
+                            <li class="skill-chip">Storyboard</li>
+                            <li class="skill-chip">Logic Pro</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="side-block-title">Terrain &amp; Passions</h2>
+                    <ul class="interests-list">
+                        <li>
+                            <strong>Tir à l'arc en compétition (Barebow)</strong> Compétiteur Nature, 3D, 18 m, TAE et Campagne.
+                        </li>
+                        <li>
+                            <strong>Cyclisme sur route &amp; Sport auto</strong> Passion pour la direction artistique des équipes cyclistes et la photographie sportive.
+                        </li>
+                        <li>
+                            <strong>Dessin, Posca &amp; Character Design</strong> Croquis d'observation au crayon, customisation Posca et mascottes cartoon.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- QR Code vers le portfolio en ligne -->
+                <a href="https://baptiste-archerdev.github.io/Portfolio/index.html" target="_blank" rel="noopener noreferrer" class="qr-card">
+                    <div class="qr-frame">
+                        <div class="ph">QR code<br>portfolio</div>
+                        <img src="qr-code.png" alt="QR code vers le portfolio de Baptiste Laffond" onerror="this.remove()">
+                    </div>
+                    <div class="qr-meta">
+                        <span class="qr-tag">Scannez pour découvrir</span>
+                        <strong>Portfolio en ligne</strong>
+                        <small>Projets, réalisations et contact</small>
+                    </div>
+                </a>
+            </aside>
+
+            <!-- COLONNE DROITE : EXPÉRIENCES, PROJETS PERSONNELS & FORMATION -->
+            <main class="col-right">
+                <section>
+                    <div class="section-head">
+                        <h2>Projets universitaires &amp; associatifs</h2>
+                        <span class="hand-note">« De l'esquisse au tirage »</span>
+                    </div>
+
+                    <div class="exp-stack">
+                        <article class="exp-item">
+                            <div class="exp-date">
+                                Mai 2026<br>
+                                <span class="role-pill">SAÉ 202</span>
+                            </div>
+                            <div class="exp-content">
+                                <h3>Campagne « Lacoste Goliath »</h3>
+                                <p>Conception d'une campagne 360° pour une veste connectée : direction artistique, affiche print, tournage vidéo avec VFX sous After Effects et site WordPress.</p>
+                            </div>
+                        </article>
+
+                        <article class="exp-item">
+                            <div class="exp-date">
+                                2026<br>
+                                <span class="role-pill">Chef de projet</span>
+                            </div>
+                            <div class="exp-content">
+                                <h3>Magazine « Interface » <span class="exp-badge-hand">700 exemplaires imprimés</span></h3>
+                                <p>Coordination des sponsors (1 250 € récoltés pour autofinancer le tirage), communication, planification, maquette éditoriale InDesign et rédaction d'article.</p>
+                            </div>
+                        </article>
+
+                        <article class="exp-item">
+                            <div class="exp-date">
+                                2026<br>
+                                <span class="role-pill">Initiative volontaire</span>
+                            </div>
+                            <div class="exp-content">
+                                <h3>1ère Cie des Archers du Velay <span class="exp-badge-hand pink">Charte 6 planches</span></h3>
+                                <p>Refonte vectorielle complète du blason historique du club du Puy-en-Velay et rédaction de la charte graphique officielle normée.</p>
+                            </div>
+                        </article>
+
+                        <article class="exp-item">
+                            <div class="exp-date">
+                                2026<br>
+                                <span class="role-pill">Campagne 360°</span>
+                            </div>
+                            <div class="exp-content">
+                                <h3>Union Cycliste du Puy (UCPV) &amp; Motion Design</h3>
+                                <p>Système de déclinaisons de logos, affiches print, storyboard et animations sous After Effects.</p>
+                            </div>
+                        </article>
+
+                        <article class="exp-item">
+                            <div class="exp-date">
+                                Déc. 2025<br>
+                                <span class="role-pill">Stratégie com'</span>
+                            </div>
+                            <div class="exp-content">
+                                <h3>Campagne « L'Élan du Cœur » (SPA)</h3>
+                                <p>Stratégie de communication et recommandations graphiques pour une campagne nationale de sensibilisation et d'adoption.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="section-head">
+                        <h2>Réalisations personnelles</h2>
+                        <span class="hand-note" style="color:var(--accent-lime);">« Projets 100% autonomes »</span>
+                    </div>
+
+                    <div class="perso-grid">
+                        <article class="perso-card">
+                            <div class="perso-top">
+                                <h3>Carquois Mag N°1</h3>
+                                <span>Édition 16 p.</span>
+                            </div>
+                            <p>Magazine spécialisé créé de A à Z : chemin de fer, rédaction, schémas techniques vectoriels, fausses publicités et maquette InDesign.</p>
+                        </article>
+
+                        <article class="perso-card">
+                            <div class="perso-top">
+                                <h3>FlèchOptim</h3>
+                                <span>Application JS</span>
+                            </div>
+                            <p>Calculateur interactif de spine et comparateur technique développé en JavaScript pour configurer le matériel d'archerie.</p>
+                        </article>
+
+                        <article class="perso-card">
+                            <div class="perso-top">
+                                <h3>Hava Archerie</h3>
+                                <span>Branding</span>
+                            </div>
+                            <p>Refonte de l'identité visuelle complète d'une enseigne spécialisée en tir à l'arc et création des print et réseaux sociaux.</p>
+                        </article>
+
+                        <article class="perso-card">
+                            <div class="perso-top">
+                                <h3>Série Tour de France</h3>
+                                <span>18 Affiches</span>
+                            </div>
+                            <p>Collection de 18 compositions graphiques inspirées des maillots des équipes du peloton cycliste.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="section-head">
+                        <h2>Formation</h2>
+                    </div>
+
+                    <div class="edu-grid">
+                        <article class="edu-item">
+                            <span class="edu-year">2025 à aujourd'hui</span>
+                            <h3>BUT Métiers du Multimédia et de l'Internet</h3>
+                            <p>IUT Clermont-Auvergne, site du Puy-en-Velay (43)</p>
+                        </article>
+                        <article class="edu-item">
+                            <span class="edu-year">2024-2025</span>
+                            <h3>BUT Informatique</h3>
+                            <p>IUT de Rodez, Rodez (12)</p>
+                        </article>
+                        <article class="edu-item">
+                            <span class="edu-year">2024</span>
+                            <h3>Baccalauréat STI2D</h3>
+                            <p>Lycée Alexis Monteil, Rodez (12)</p>
+                        </article>
+                    </div>
+                </section>
+
+                <footer class="cv-footer">
+                    <span class="cv-footer-meta">Baptiste Laffond, Design Graphique &amp; Édition</span>
+                    <img src="creations/signature_baptiste_white.png" alt="Signature Baptiste Laffond" class="cv-signature">
+                </footer>
+            </main>
+
+        </div>
+    </div>
+</body>
+
+</html>

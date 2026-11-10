@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Monographie &amp; Catalogue des 11 Réalisations | Baptiste Laffond</title>
+    
+    <!-- Typographie Néo-Grotesque Suisse (Inter Tight) & Accent Éditorial (Instrument Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="portfolio-style.css">
+    <style>
+        .page-catalog-head {
+            padding-top: calc(72px + var(--space-3xl));
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--rule);
+        }
+        
+        .catalog-title {
+            font-size: var(--text-display);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin: var(--space-xs) 0 var(--space-md);
+        }
+        
+        .catalog-lead {
+            font-size: var(--text-lg);
+            color: var(--ink-secondary);
+            line-height: 1.6;
+            max-width: 62ch;
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Grille asymétrique large des planches de catalogue (2 colonnes aérées, pas de 3 cartes) */
+        .catalog-asymmetric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            padding: var(--space-3xl) 0;
+            border-bottom: 1px solid var(--rule);
+        }
+        
+        .catalog-plate {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--rule);
+            background: var(--paper-surface);
+            text-decoration: none;
+            color: var(--ink);
+            transition: transform 0.35s var(--ease-spring), border-color 0.2s var(--ease-out);
+            overflow: hidden;
+        }
+        
+        .catalog-plate:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        
+        .catalog-plate-media {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: var(--paper-surface);
+            overflow: hidden;
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .catalog-plate-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.92) contrast(1.02);
+            transition: transform 0.5s var(--ease-spring);
+        }
+        
+        .catalog-plate-media img.contain {
+            object-fit: contain;
+            padding: var(--space-md);
+        }
+        
+        .catalog-plate:hover .catalog-plate-media img {
+            transform: scale(1.03);
+        }
+        
+        .catalog-plate-content {
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+        
+        .catalog-plate-meta-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            margin-bottom: var(--space-xs);
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+        }
+        
+        .catalog-plate-meta-top span:last-child {
+            color: var(--ink-muted);
+        }
+        
+        .catalog-plate-title {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .catalog-plate-desc {
+            font-size: var(--text-sm);
+            color: var(--ink-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+            flex: 1;
+        }
+        
+        .catalog-plate-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2xs);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--rule);
+            transition: color 0.18s ease;
+        }
+        
+        .catalog-plate:hover .catalog-plate-cta {
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .catalog-asymmetric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-layer" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+                Baptiste Laffond
+                <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="portfolio.html" class="nav-link">← Accueil</a>
+                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
+                <a href="projets.html" class="nav-link active">Catalogue (11)</a>
+                <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
+            </nav>
+
+            <div>
+                <a href="portfolio.html#contact" class="cta-swiss">
+                    <span>Me contacter</span>
+                    <span class="arrow-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-catalog-head">
+            <div class="container">
+                <div class="eyebrow eyebrow-accent">Archive &amp; Monographie</div>
+                <h1 class="catalog-title">Toutes les réalisations</h1>
+                <p class="catalog-lead">
+                    Monographie complète des projets conduits en <strong>BUT MMI</strong> (IUT Clermont-Auvergne, site du Puy-en-Velay) et travaux d'atelier personnel : presse imprimée, systèmes d'identité, affiches, développements web et reportage photo.
+                </p>
+
+                <div class="archive-filter-bar" role="group" aria-label="Filtrer les travaux">
+                    <button type="button" class="filter-chip active" data-filter="all">Toutes les réalisations (11)</button>
+                    <button type="button" class="filter-chip" data-filter="student">Projets universitaires BUT MMI (05)</button>
+                    <button type="button" class="filter-chip" data-filter="personal">Projets d'atelier personnel (06)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grille asymétrique aérée en 2 grandes colonnes (pas de 3 cartes) -->
+        <section class="container">
+            <div class="catalog-asymmetric-grid">
+
+                <!-- 01 : Carquois Mag N°1 -->
+                <a href="carquois_mag-1.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media">
+                        <img src="carquois-mag-p1.png" alt="Couverture de Carquois Mag N°1" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>01 / 11 · Édition imprimée</span>
+                                <span>Projet personnel</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Carquois Mag N°1</h2>
+                            <p class="catalog-plate-desc">Magazine de 16 pages A4 conçu en totale autonomie : rédaction des dossiers, infographies vectorielles du Barebow, réclames rétro et maquette InDesign.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Feuilleter les 16 planches ↗</span>
+                    </div>
+                </a>
+
+                <!-- 02 : Union Cycliste du Puy (UCPV) -->
+                <a href="ucpv.html" class="catalog-plate" data-type="student">
+                    <div class="catalog-plate-media" style="background:#09301f;">
+                        <img src="ucpv-affiche-web.png" alt="Affiche UCPV Le vrai record" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>02 / 11 · Campagne 360° &amp; RSE</span>
+                                <span>SAÉ 302 · BUT MMI</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Union Cycliste du Puy (UCPV)</h2>
+                            <p class="catalog-plate-desc">Campagne « Le vrai record » : système de 27 logotypes déclinés selon les pôles sportifs, affiches A4 print et web, carrousels réseaux sociaux et spot vidéo 30s.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Consulter l'étude de cas ↗</span>
+                    </div>
+                </a>
+
+                <!-- 03 : Magazine Interface -->
+                <a href="mag-interface.html" class="catalog-plate" data-type="student">
+                    <div class="catalog-plate-media">
+                        <img src="INTERFACE-couv-scaled.jpg" alt="Couverture Magazine Interface">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>03 / 11 · Presse imprimée &amp; Gestion</span>
+                                <span>Projet étudiant</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Magazine Interface</h2>
+                            <p class="catalog-plate-desc">Coordination de projet en tant que chef d'équipe, démarchage des annonceurs locaux (1 250 € récoltés), suivi de maquette et tirage physique à 700 exemplaires.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Voir le projet éditorial ↗</span>
+                    </div>
+                </a>
+
+                <!-- 04 : Archers du Velay -->
+                <a href="archers-du-velay.html" class="catalog-plate" data-type="student">
+                    <div class="catalog-plate-media" style="background:#EDEAE1;">
+                        <img src="archers-velay-presentation.png" alt="Charte graphique Archers du Velay" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>04 / 11 · Identité visuelle</span>
+                                <span>Le Puy-en-Velay</span>
+                            </div>
+                            <h2 class="catalog-plate-title">1<sup>re</sup> Cie des Archers du Velay</h2>
+                            <p class="catalog-plate-desc">Modernisation du blason historique (coquille Saint-Jacques et silhouettes volcaniques) et rédaction de la charte graphique normée en 6 planches.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Consulter la charte graphique ↗</span>
+                    </div>
+                </a>
+
+                <!-- 05 : Lacoste Goliath -->
+                <a href="lacoste_project.html" class="catalog-plate" data-type="student">
+                    <div class="catalog-plate-media">
+                        <img src="GOLIATH.png" alt="Affiche Lacoste Goliath" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>05 / 11 · Direction artistique &amp; VFX</span>
+                                <span>SAÉ 202 · BUT MMI</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Campagne Lacoste Goliath</h2>
+                            <p class="catalog-plate-desc">Campagne pour une veste technique chauffante : création de l'affiche publicitaire, tournage et montage vidéo avec effets visuels et intégration WordPress.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Découvrir la campagne ↗</span>
+                    </div>
+                </a>
+
+                <!-- 06 : Hava Archerie -->
+                <a href="hava-archerie.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media" style="background:#F2ECE6;">
+                        <img src="nouveau-logo.webp" alt="Logotype Hava Archerie" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>06 / 11 · Branding &amp; Produit</span>
+                                <span>Projet personnel</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Hava Archerie &amp; Scope T53</h2>
+                            <p class="catalog-plate-desc">Refonte du logotype épuré de l'enseigne et série de 5 visuels techniques industriels pour le lancement du Scope T53 2.0 usiné en aluminium 6061.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Voir le système de marque ↗</span>
+                    </div>
+                </a>
+
+                <!-- 07 : FlèchOptim -->
+                <a href="FlechOptim.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media" style="background:#141416;">
+                        <img src="FlechOptim.jpg" alt="Interface de l'outil FlèchOptim" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>07 / 11 · Développement Web</span>
+                                <span>Outil métier</span>
+                            </div>
+                            <h2 class="catalog-plate-title">FlèchOptim — Calculateur de spine</h2>
+                            <p class="catalog-plate-desc">Application web interactive permettant aux archers de calculer leur spine idéal selon la puissance et l'allonge, avec comparateur dynamique de tubes.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Accéder à l'application ↗</span>
+                    </div>
+                </a>
+
+                <!-- 08 : After Effects & Storyboard -->
+                <a href="motion-storyboard.html" class="catalog-plate" data-type="student">
+                    <div class="catalog-plate-media">
+                        <img src="ae-phoenix-parallaxe.png" alt="After Effects Motion Phoenix">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>08 / 11 · Motion &amp; Pré-production</span>
+                                <span>After Effects</span>
+                            </div>
+                            <h2 class="catalog-plate-title">After Effects &amp; Storyboard 14 plans</h2>
+                            <p class="catalog-plate-desc">Dossier de pré-production de 6 pages avec 14 plans dessinés et découpage technique multi-caméras, complété par des scènes After Effects en parallaxe 2.5D.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Voir les vidéos &amp; storyboards ↗</span>
+                    </div>
+                </a>
+
+                <!-- 09 : Tour de France -->
+                <a href="tour-de-france.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media">
+                        <img src="herotdf.jpg" alt="Affiches Tour de France">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>09 / 11 · Série graphique</span>
+                                <span>Projet personnel</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Tour de France (18 affiches)</h2>
+                            <p class="catalog-plate-desc">Collection de 18 compositions graphiques dédiées aux coureurs du peloton cycliste, construites autour des motifs et typographies des maillots officiels.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Parcourir les 18 affiches ↗</span>
+                    </div>
+                </a>
+
+                <!-- 10 : Rallye des Cardabelles -->
+                <a href="rallye-cardabelles.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media">
+                        <img src="20241005_152502(0).jpg" alt="Photographie Rallye des Cardabelles">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>10 / 11 · Photographie</span>
+                                <span>Reportage terrain</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Rallye des Cardabelles</h2>
+                            <p class="catalog-plate-desc">Série documentaire de 12 clichés pris au cœur des spéciales sur terre autour de Millau, exploration de la trajectoire, de la vitesse et de la poussière.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Voir la série documentaire ↗</span>
+                    </div>
+                </a>
+
+                <!-- 11 : Atelier d'Illustration & Character Design -->
+                <a href="creation.html" class="catalog-plate" data-type="personal">
+                    <div class="catalog-plate-media" style="background:#18181C;">
+                        <img src="creations/burger-mascotte-web.png" alt="Burger Mascotte Character Design" class="contain">
+                    </div>
+                    <div class="catalog-plate-content">
+                        <div>
+                            <div class="catalog-plate-meta-top">
+                                <span>11 / 11 · Character Design &amp; Dessin</span>
+                                <span>Atelier personnel</span>
+                            </div>
+                            <h2 class="catalog-plate-title">Illustration, Mascottes &amp; Croquis</h2>
+                            <p class="catalog-plate-desc">Univers street cartoon et character design vectoriel (Burger Mascotte), peintures à l'encre sur partitions musicales, feutres Posca et études d'observation au graphite.</p>
+                        </div>
+                        <span class="catalog-plate-cta">Explorer l'atelier d'illustration ↗</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-swiss">
+        <div class="container">
+            <div class="footer-bottom-bar">
+                <span>© 2026 Baptiste Laffond — Tous droits réservés</span>
+                <a href="portfolio.html" style="color:var(--ink); font-weight:600;">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+    <script>
+        // Filtrage des planches du catalogue
+        const chips = document.querySelectorAll('.filter-chip');
+        const plates = document.querySelectorAll('.catalog-plate');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.getAttribute('data-filter');
+                plates.forEach(plate => {
+                    const type = plate.getAttribute('data-type');
+                    if (filter === 'all' || type === filter) {
+                        plate.style.display = 'flex';
+                    } else {
+                        plate.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

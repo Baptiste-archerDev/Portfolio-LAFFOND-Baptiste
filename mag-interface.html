@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Interface — Étude de cas &amp; DA Presse | Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-style.css">
+    <style>
+        /* Charte Magazine Interface - Cyan & Magenta Numerique */
+        :root {
+            --accent-primary: #00e5ff;
+            --accent-yellow: #ffd600;
+            --accent-coral: #ff007f;
+            --poster-bg: #141418;
+        }
+        .btn-primary {
+            background: #00e5ff;
+            color: #0a0a0c;
+            border-color: #00e5ff;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body data-project-charter="Charte Interface (#D7391F / #F4EFE6)">
+    <div class="scroll-progress"></div>
+
+            <header class="topbar">
+        <div class="topbar-inner">
+            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+                Baptiste Laffond
+                <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="portfolio.html" class="nav-link">← Accueil</a>
+                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
+                <a href="portfolio.html#repertoire" class="nav-link">Répertoire (11)</a>
+                <a href="projets.html" class="nav-link">Catalogue</a>
+                <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
+            </nav>
+
+            <div>
+                <a href="portfolio.html#contact" class="cta-swiss">
+                    <span>Me contacter</span>
+                    <span class="arrow-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <a href="portfolio.html#sommaire" class="case-breadcrumb">← Retour au Dossier 01 · Édition &amp; Presse</a>
+
+                <div class="case-header-grid">
+                    <div>
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                            <span class="pill-badge yellow">CHEF DE PROJET</span>
+                            <span class="pill-badge green">700 EXEMPLAIRES</span>
+                            <span class="pill-badge blue">1 250 € DE SPONSORS</span>
+                        </div>
+                        <h1 class="case-title">Magazine Interface</h1>
+                        <p class="case-lead">
+                            Concevoir, financer et faire paraître un magazine imprimé à 700 exemplaires en équipe en moins de deux semaines, tout en coordonnant la communication, la recherche de sponsors, la maquette et la rédaction.
+                        </p>
+
+                        <!-- Barre rapide de la Charte Interface -->
+                        <div class="project-brand-bar" aria-label="Palette éditoriale Magazine Interface">
+                            <span class="project-brand-bar-label">Palette Interface (clic = copier) :</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#D7391F"><span class="mini-swatch-dot" style="background:#D7391F;"></span>Rouge Presse #D7391F</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#F4EFE6"><span class="mini-swatch-dot" style="background:#F4EFE6;"></span>Papier Crème #F4EFE6</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#0EA5E9"><span class="mini-swatch-dot" style="background:#0EA5E9;"></span>Cyan Aero #0EA5E9</span>
+                            <span class="mini-swatch-pill" data-copy-hex="#14110F"><span class="mini-swatch-dot" style="background:#14110F;"></span>Encre #14110F</span>
+                        </div>
+
+                        <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
+                            <a href="https://www.calameo.com/read/0051699394dd664a135ed" target="_blank" rel="noopener" class="btn-primary">Feuilleter sur Calaméo ↗</a>
+                            <a href="https://www.interface-media.com/citroen-ami-meilleure-copine-des-ados/" target="_blank" rel="noopener" class="btn-secondary">Lire mon article web ↗</a>
+                        </div>
+                    </div>
+
+                    <dl class="case-meta-notes">
+                        <div class="meta-sticky blue">
+                            <dt>MON RÔLE</dt>
+                            <dd>Chef de projet, maquettiste &amp; rédacteur</dd>
+                        </div>
+                        <div class="meta-sticky pink">
+                            <dt>COMMISSIONS</dt>
+                            <dd>Sponsors, communication &amp; planification</dd>
+                        </div>
+                        <div class="meta-sticky green">
+                            <dt>TIRAGE PRINT</dt>
+                            <dd>700 exemplaires imprimés</dd>
+                        </div>
+                        <div class="meta-sticky orange">
+                            <dt>FINANCEMENT</dt>
+                            <dd>1 250 € récoltés (devis imprimeur : 1 024 €)</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="case-banner-frame reveal-on-scroll">
+                    <img src="INTERFACE-couv-scaled.jpg" alt="Couverture du Magazine Interface" class="zoomable-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <div class="case-row reveal-on-scroll">
+                    <div class="case-text">
+                        <span class="step-number">01 · COORDONNER, CONCEVOIR &amp; PUBLIER</span>
+                        <h2>Un magazine construit collectivement en temps record</h2>
+                        <p>
+                            Dans le cadre de ce projet étudiant, j'ai occupé le rôle de <strong>chef de projet</strong> au sein des commissions sponsors, communication et planification. Avec les autres chefs de groupe, j'ai participé aux réunions de coordination pour faire avancer les différents volets et mener le magazine à son terme en moins de deux semaines.
+                        </p>
+                        <p>
+                            J'ai également contribué à la création de la maquette du magazine sous Adobe InDesign et rédigé un article publié sur le site d'Interface (<em>« La Citroën Ami, meilleure copine des ados »</em>).
+                        </p>
+                    </div>
+                    <figure class="l-frame-media">
+                        <img src="page-Interfake.png" alt="Double page sur l'esthétique Frutiger Aero dans Interface" loading="lazy">
+                        <figcaption>Aperçu de la maquette et de la direction éditoriale du magazine</figcaption>
+                    </figure>
+                </div>
+
+                <div class="case-row reverse reveal-on-scroll">
+                    <div class="case-text">
+                        <span class="step-number">02 · MISE EN PAGE &amp; RUBRIQUE INTERFAKE</span>
+                        <h2>Détourner les codes de la presse avec humour</h2>
+                        <p>
+                            <em>Interfake</em> est une rubrique imaginée par le pôle rédaction qui détourne les codes de l'article d'actualité pour inventer une fausse information humoristique (le passage secret dans les toilettes de l'IUT).
+                        </p>
+                        <p>
+                            Ce travail de maquette demande la même rigueur typographique qu'un article sérieux (colonnes, lettrines, légendes, hiérarchie des titres) pour rendre le clin d'œil immédiatement crédible.
+                        </p>
+                    </div>
+                    <figure class="l-frame-media">
+                        <img src="page-magasine1.png" alt="Page 27 d'Interfake dans le magazine Interface" loading="lazy">
+                        <figcaption>Page 27 du magazine — Mise en page de la rubrique Interfake</figcaption>
+                    </figure>
+                </div>
+
+                <!-- RÉSULTATS CHIFFRÉS -->
+                <div style="margin-top:4rem;" class="reveal-on-scroll">
+                    <div class="eyebrow eyebrow-accent">Bilan financier &amp; production</div>
+                    <h2 class="section-title">Objectif de financement dépassé</h2>
+                    <div class="results-notes-grid">
+                        <div class="result-note">
+                            <span class="draw-note rotate-left" style="color:var(--accent-lime); font-size:1.15rem; margin-bottom:var(--space-2xs);">+22% au-dessus du devis</span>
+                            <strong>1 250 €</strong>
+                            <span>Récoltés auprès des sponsors locaux démarchés</span>
+                        </div>
+                        <div class="result-note">
+                            <span class="draw-note rotate-right" style="color:var(--accent); font-size:1.15rem; margin-bottom:var(--space-2xs);">autofinancé à 100%</span>
+                            <strong>1 024 €</strong>
+                            <span>Coût réel du devis imprimeur (tirage offset)</span>
+                        </div>
+                        <div class="result-note">
+                            <span class="draw-note rotate-left" style="color:var(--accent-pink); font-size:1.15rem; margin-bottom:var(--space-2xs);">tirage complet</span>
+                            <strong>700 ex.</strong>
+                            <span>Distribués sur le campus et au Puy-en-Velay</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="next-project-banner">
+            <div>
+                <span class="section-kicker" style="margin-bottom:0.4rem;">Projet suivant</span>
+                <h3 style="font-family:var(--font-display); font-size:1.8rem; text-transform:uppercase;">Union Cycliste du Puy-en-Velay (UCPV)</h3>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="ucpv.html" class="btn-primary">Voir la campagne UCPV →</a>
+                <a href="projets.html" class="btn-secondary">Tous les projets</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="portfolio.js"></script>
+</body>
+
+</html>
